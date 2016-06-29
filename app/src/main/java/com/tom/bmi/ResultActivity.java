@@ -12,7 +12,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         Intent intent = getIntent();
-        float bmi = intent.getFloatExtra("BMI_EXTRA", 0);
+        float bmi = intent.getFloatExtra(getString(R.string.bmi_extra), 0);
         TextView result = (TextView) findViewById(R.id.result);
         result.setText("您的BMI值為:"+bmi);
     }

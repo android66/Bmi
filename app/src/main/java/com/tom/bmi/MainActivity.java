@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
         findViews();
         bHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         float bmi = weight/(height*height);
         Log.d("BMI", String.valueOf(bmi));
         Intent intent = new Intent(this, ResultActivity.class);
-        intent.putExtra("BMI_EXTRA", bmi);
+        intent.putExtra(getString(R.string.bmi_extra), bmi);
         startActivity(intent);
         /*Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
         new AlertDialog.Builder(this)
@@ -56,5 +57,41 @@ public class MainActivity extends AppCompatActivity {
         edWeight = (EditText) findViewById(R.id.ed_weight);
         edHeight = (EditText) findViewById(R.id.ed_height);
         bHelp = (Button) findViewById(R.id.b_help);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "onStop", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
     }
 }
